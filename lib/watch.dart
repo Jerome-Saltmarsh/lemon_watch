@@ -10,7 +10,13 @@ class Watch<T> {
   T get value => _value;
   Stream<T> get stream => _controller.stream;
 
-  Watch(this._value);
+  Watch(this._value, {
+    void Function(T t)? onChanged
+  }){
+    if (onChanged != null){
+      this.onChanged(onChanged);
+    }
+  }
 
   set value(T t){
     if (_value == t) return;
