@@ -33,4 +33,7 @@ class Watch<T> {
       function(event);
     });
   }
+
+  bool get isNull => value == null;
+  bool get isNotNull => value != null;
 }
