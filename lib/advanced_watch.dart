@@ -1,6 +1,9 @@
 
 import 'dart:async';
 
+
+typedef void Changed<T>(T value, T previous);
+
 class StreamData<T> {
    T value;
    T previous;
@@ -32,12 +35,11 @@ class AdvancedWatch<T> {
     _controller.add(state);
   }
 
-  StreamSubscription listen(Changed<T> changed){
+  StreamSubscription listen(Function changed){
     return stream.listen((StreamData<T> state){
       changed(state.value, state.previous);
     });
   }
 }
 
-typedef void Changed<T>(T value, T previous);
 
