@@ -24,24 +24,6 @@ class WatchBuilder<T> extends StatelessWidget {
   }
 }
 
-class NullableWatchBuilder<T> extends StatelessWidget {
-  final Watch<T> watch;
-  final Widget Function(T? t) builder;
-
-  NullableWatchBuilder(this.watch, this.builder);
-
-  @override
-  Widget build(BuildContext context) {
-    return StreamBuilder<T>(
-      stream: watch.stream,
-      initialData: watch.value,
-      builder: (BuildContext context, AsyncSnapshot<T> snapshot) {
-        return builder(snapshot.data);
-      },
-    );
-  }
-}
-
 Widget _buildEmpty(BuildContext context){
   return const SizedBox();
 }
