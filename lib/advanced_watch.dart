@@ -27,6 +27,8 @@ class AdvancedWatch<T> {
       listen(onChanged);
     }
   }
+  
+  T get value => state.value;
 
   set value(T t){
     if (state.value == t) return;

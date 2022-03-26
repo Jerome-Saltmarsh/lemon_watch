@@ -10,17 +10,15 @@ class WatchBuilder<T> extends StatelessWidget {
 
   WatchBuilder(this.watch, this.builder);
 
+  bool isNullable<T>() => null is T;
+
   @override
   Widget build(BuildContext context) {
     return StreamBuilder<T>(
       stream: watch.stream,
       initialData: watch.value,
       builder: (BuildContext context, AsyncSnapshot<T> snapshot) {
-        T? data = snapshot.data;
-        if (data == null){
-          throw Exception("Watch builders do not accept nullable watches");
-        }
-        return builder(data);
+        return builder(snapshot.data as T);
       },
     );
   }

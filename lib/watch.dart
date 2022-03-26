@@ -9,6 +9,9 @@ class Watch<T> {
   // properties
   T get value => _value;
   Stream<T> get stream => _controller.stream;
+  bool _called = false;
+
+  bool isNullable<T>() => null is T;
 
   Watch(this._value, {
     void Function(T t)? onChanged
