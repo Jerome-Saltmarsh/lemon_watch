@@ -2,7 +2,7 @@
 import 'package:flutter/widgets.dart';
 import 'advanced_watch.dart';
 
-import 'watch.dart';
+import 'src/watch.dart';
 
 class WatchBuilder<T> extends StatelessWidget {
   final Watch<T> watch;
