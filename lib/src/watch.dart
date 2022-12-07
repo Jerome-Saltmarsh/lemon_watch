@@ -10,8 +10,6 @@ class Watch<T> {
   /// Gets called before a value is set, allows control over the range of values allowed
   T Function(T t)? clamp;
 
-  // bool isNullable<T>() => null is T;
-
   Watch(this._value, {
     void Function(T t)? onChanged,
     this.clamp,
