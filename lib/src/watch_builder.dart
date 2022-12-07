@@ -9,8 +9,6 @@ class WatchBuilder<T> extends StatelessWidget {
 
   WatchBuilder(this.watch, this.builder);
 
-  bool isNullable<T>() => null is T;
-
   @override
   Widget build(BuildContext context) {
     return StreamBuilder<T>(
