@@ -15,4 +15,8 @@ class WatchBool extends Watch<bool> {
   void setTrue(){
     value = true;
   }
+  
+  void set(bool value){
+    this.value = value;
+  }
 }
