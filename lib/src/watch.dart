@@ -39,3 +39,12 @@ class Watch<T> {
   StreamSubscription onChanged(void Function(T t) function) =>
     stream.listen(function);
 }
+
+extension ExtensionWatchBool on Watch<bool> {
+  void toggle() => value = !value;
+
+  void setFalse() => value = false;
+
+  void setTrue() => value = true;
+
+}
