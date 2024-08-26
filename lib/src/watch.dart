@@ -7,7 +7,6 @@ class Watch<T> {
   T get value => _value;
   Stream<T> get stream => _controller.stream;
 
-  /// Gets called before a value is set, allows control over the range of values allowed
   T Function(T t)? clamp;
 
   Watch(this._value, {
@@ -40,11 +39,4 @@ class Watch<T> {
     stream.listen(function);
 }
 
-extension ExtensionWatchBool on Watch<bool> {
-  void toggle() => value = !value;
 
-  void setFalse() => value = false;
-
-  void setTrue() => value = true;
-
-}

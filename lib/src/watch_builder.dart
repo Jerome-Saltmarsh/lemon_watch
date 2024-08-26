@@ -10,13 +10,10 @@ class WatchBuilder<T> extends StatelessWidget {
   WatchBuilder(this.watch, this.builder);
 
   @override
-  Widget build(BuildContext context) {
-    return StreamBuilder<T>(
+  Widget build(BuildContext context) => StreamBuilder<T>(
       stream: watch.stream,
       initialData: watch.value,
-      builder: (BuildContext context, AsyncSnapshot<T> snapshot) {
-        return builder(snapshot.data as T);
-      },
+      builder: (BuildContext context, AsyncSnapshot<T> snapshot) =>
+          builder(snapshot.data as T),
     );
-  }
 }
